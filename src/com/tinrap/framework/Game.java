@@ -11,7 +11,8 @@ public interface Game {
 
 	public Audio getAudio();
 
-	public Input getInput();
+	public 
+ getInput();
 
 	public FileIO getFileIO();
 
