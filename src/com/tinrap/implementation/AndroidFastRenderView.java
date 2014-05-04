@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.tinrap.implementation;
 
 import android.graphics.Bitmap;
@@ -9,12 +6,6 @@ import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-/**
- * @author Parnit Sainion	
- * @description: Framework taken from kilobolt.com
- * @since 3 May 2014
- *
- */
 public class AndroidFastRenderView extends SurfaceView implements Runnable {
     AndroidGame game;
     Bitmap framebuffer;
@@ -49,7 +40,7 @@ public class AndroidFastRenderView extends SurfaceView implements Runnable {
             startTime = System.nanoTime();
             
             if (deltaTime > 3.15){
-                deltaTime = (float) 3.15;
+            	deltaTime = (float) 3.15;
            }
      
 

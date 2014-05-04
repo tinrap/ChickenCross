@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.tinrap.implementation;
 
 import android.graphics.Bitmap;
@@ -8,12 +5,6 @@ import android.graphics.Bitmap;
 import com.tinrap.framework.Image;
 import com.tinrap.framework.Graphics.ImageFormat;
 
-/**
- * @author Parnit Sainion	
- * @description: Framework taken from kilobolt.com
- * @since 3 May 2014
- *
- */
 public class AndroidImage implements Image {
     Bitmap bitmap;
     ImageFormat format;
@@ -43,4 +34,3 @@ public class AndroidImage implements Image {
         bitmap.recycle();
     }      
 }
- 

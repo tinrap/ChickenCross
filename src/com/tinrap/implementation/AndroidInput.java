@@ -1,8 +1,4 @@
-/**
- * 
- */
 package com.tinrap.implementation;
-
 
 import java.util.List;
 
@@ -12,12 +8,6 @@ import android.view.View;
 
 import com.tinrap.framework.Input;
 
-/**
- * @author Parnit Sainion	
- * @description: Framework taken from kilobolt.com
- * @since 3 May 2014
- *
- */
 public class AndroidInput implements Input {    
     TouchHandler touchHandler;
 

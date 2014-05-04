@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.tinrap.implementation;
 
 import java.io.IOException;
@@ -14,13 +11,6 @@ import android.media.MediaPlayer.OnVideoSizeChangedListener;
 
 import com.tinrap.framework.Music;
 
-
-/**
- * @author Parnit Sainion	
- * @description: Framework taken from kilobolt.com
- * @since 3 May 2014
- *
- */
 public class AndroidMusic implements Music, OnCompletionListener, OnSeekCompleteListener, OnPreparedListener, OnVideoSizeChangedListener {
     MediaPlayer mediaPlayer;
     boolean isPrepared = false;
@@ -46,9 +36,9 @@ public class AndroidMusic implements Music, OnCompletionListener, OnSeekComplete
     @Override
     public void dispose() {
     
-         if (this.mediaPlayer.isPlaying()){
-               this.mediaPlayer.stop();
-                }
+    	 if (this.mediaPlayer.isPlaying()){
+    	       this.mediaPlayer.stop();
+    	        }
         this.mediaPlayer.release();
     }
 
@@ -105,7 +95,7 @@ public class AndroidMusic implements Music, OnCompletionListener, OnSeekComplete
 
     @Override
     public void stop() {
-         if (this.mediaPlayer.isPlaying() == true){
+    	 if (this.mediaPlayer.isPlaying() == true){
         this.mediaPlayer.stop();
         
        synchronized (this) {
@@ -120,32 +110,31 @@ public class AndroidMusic implements Music, OnCompletionListener, OnSeekComplete
         }
     }
 
-    @Override
-    public void seekBegin() {
-        mediaPlayer.seekTo(0);
-        
-    }
+	@Override
+	public void seekBegin() {
+		mediaPlayer.seekTo(0);
+		
+	}
 
 
-    @Override
-    public void onPrepared(MediaPlayer player) {
-        // TODO Auto-generated method stub
-         synchronized (this) {
-               isPrepared = true;
-            }
-        
-    }
+	@Override
+	public void onPrepared(MediaPlayer player) {
+		// TODO Auto-generated method stub
+		 synchronized (this) {
+	           isPrepared = true;
+	        }
+		
+	}
 
-    @Override
-    public void onSeekComplete(MediaPlayer player) {
-        // TODO Auto-generated method stub
-        
-    }
+	@Override
+	public void onSeekComplete(MediaPlayer player) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void onVideoSizeChanged(MediaPlayer player, int width, int height) {
-        // TODO Auto-generated method stub
-        
-    }
+	@Override
+	public void onVideoSizeChanged(MediaPlayer player, int width, int height) {
+		// TODO Auto-generated method stub
+		
+	}
 }
- 

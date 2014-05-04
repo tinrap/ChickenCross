@@ -1,8 +1,4 @@
-/**
- * 
- */
 package com.tinrap.implementation;
-
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,14 +15,8 @@ import android.preference.PreferenceManager;
 
 import com.tinrap.framework.FileIO;
 
-/**
- * @author Parnit Sainion	
- * @description: Framework taken from kilobolt.com
- * @since 3 May 2014
- *
- */
 public class AndroidFileIO implements FileIO {
-    Context context;
+	Context context;
     AssetManager assets;
     String externalStoragePath;
 
@@ -56,7 +46,6 @@ public class AndroidFileIO implements FileIO {
     }
     
     public SharedPreferences getSharedPref() {
-        return PreferenceManager.getDefaultSharedPreferences(context);
+    	return PreferenceManager.getDefaultSharedPreferences(context);
     }
 }
- 

@@ -1,8 +1,4 @@
-/**
- * 
- */
 package com.tinrap.implementation;
-
 
 import java.io.IOException;
 
@@ -16,12 +12,6 @@ import com.tinrap.framework.Audio;
 import com.tinrap.framework.Music;
 import com.tinrap.framework.Sound;
 
-/**
- * @author Parnit Sainion	
- * @description: Framework taken from kilobolt.com
- * @since 3 May 2014
- *
- */
 public class AndroidAudio implements Audio {
     AssetManager assets;
     SoundPool soundPool;

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.tinrap.implementation;
 
 import java.util.ArrayList;
@@ -13,12 +10,6 @@ import com.tinrap.framework.Pool;
 import com.tinrap.framework.Input.TouchEvent;
 import com.tinrap.framework.Pool.PoolObjectFactory;
 
-/**
- * @author Parnit Sainion	
- * @description: Framework taken from kilobolt.com
- * @since 3 May 2014
- *
- */
 public class SingleTouchHandler implements TouchHandler {
     boolean isTouched;
     int touchX;

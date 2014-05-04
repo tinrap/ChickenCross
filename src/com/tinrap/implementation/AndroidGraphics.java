@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.tinrap.implementation;
 
 import java.io.IOException;
@@ -19,13 +16,6 @@ import android.graphics.Rect;
 import com.tinrap.framework.Graphics;
 import com.tinrap.framework.Image;
 
-
-/**
- * @author Parnit Sainion	
- * @description: Framework taken from kilobolt.com
- * @since 3 May 2014
- *
- */
 public class AndroidGraphics implements Graphics {
     AssetManager assets;
     Bitmap frameBuffer;
@@ -113,9 +103,9 @@ public class AndroidGraphics implements Graphics {
     
     @Override
     public void drawString(String text, int x, int y, Paint paint){
-        canvas.drawText(text, x, y, paint);
+    	canvas.drawText(text, x, y, paint);
 
-        
+    	
     }
     
 
@@ -142,9 +132,9 @@ public class AndroidGraphics implements Graphics {
     }
     
     public void drawScaledImage(Image Image, int x, int y, int width, int height, int srcX, int srcY, int srcWidth, int srcHeight){
-        
-        
-     srcRect.left = srcX;
+    	
+    	
+   	 srcRect.left = srcX;
         srcRect.top = srcY;
         srcRect.right = srcX + srcWidth;
         srcRect.bottom = srcY + srcHeight;
