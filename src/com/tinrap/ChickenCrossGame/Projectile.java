@@ -1,5 +1,7 @@
 package com.tinrap.ChickenCrossGame;
 
+import java.util.ArrayList;
+
 import android.graphics.Rect;
 
 public class Projectile {
@@ -64,7 +66,32 @@ public class Projectile {
 	}
 	
 	private void checkCollision() {
-        if(Rect.intersects(r, GameScreen.enemy1.r)){
+		
+		ArrayList<Enemy> enemies = GameScreen.enemyList;
+		int size = enemies.size();
+		Enemy e;
+		for( int count =0; count < size; count++)
+		{ 
+			e = enemies.get(count);
+			if(Rect.intersects(r, e.r)){
+	            visible = false;
+	        
+	            if (e.health > 0) {
+	                e.health -= 1;
+	            }
+	            if (e.health == 0) {
+	                e.setCenterX(-100);
+	                enemies.remove(count);
+	                
+	                //reduce count and size by 1
+	                count--;
+	                size --;
+	                //GameScreen.score += 5;
+	            }
+
+	        }
+		}
+        /*if(Rect.intersects(r, GameScreen.enemy1.r)){
             visible = false;
         
             if (GameScreen.enemy1.health > 0) {
@@ -90,6 +117,6 @@ public class Projectile {
 
             }
 
-        }
+        }*/
     }
 }

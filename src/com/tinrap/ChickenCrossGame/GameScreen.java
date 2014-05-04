@@ -24,13 +24,15 @@ public class GameScreen extends Screen {
 
 	private static Background bg1, bg2;
 	private static Chicken chicken;
-	public static EnemyOne enemy1, enemy2;
+	//public static EnemyOne enemy1, enemy2;
 
 	private Image currentSprite, chickenImg;
 	private Image enemyOneImg, enemyTwoImg, enemyThreeImg, enemyFourImg, enemyFiveImg;
 	private Image walkLeft, walkRight;
 			
 	private Animation anim, enemyAnim, walkingAnim;
+	
+	public static ArrayList<Enemy> enemyList = new ArrayList<Enemy>();
 
 	private ArrayList tilearray = new ArrayList();
 
@@ -45,8 +47,8 @@ public class GameScreen extends Screen {
 		bg1 = new Background(0, 0);
 		bg2 = new Background(2160, 0);
 		chicken = new Chicken();
-		enemy1 = new EnemyOne(340, 360);
-		enemy2 = new EnemyOne(700, 360);
+		//enemy1 = new EnemyOne(340, 360);
+		//enemy2 = new EnemyOne(700, 360);
 
 		chickenImg = Assets.chicken;
 		
@@ -122,15 +124,26 @@ public class GameScreen extends Screen {
 			}
 		}
 		height = lines.size();
-
+		Enemy e;
+		int locationX, locationY;
 		for (int j = 0; j < 12; j++) {
 			String line = (String) lines.get(j);
 			for (int i = 0; i < width; i++) {
 
 				if (i < line.length()) {
 					char ch = line.charAt(i);
-					Tile t = new Tile(i, j, Character.getNumericValue(ch));
-					tilearray.add(t);
+					if(ch == 'e')
+					{
+						locationX = i* 40;
+						locationY = j * 40;
+						System.out.println(locationX+ "    "+ locationY);
+						e = new EnemyOne(locationX, locationY);
+						enemyList.add(e);
+					}
+					else{
+						Tile t = new Tile(i, j, Character.getNumericValue(ch));
+						tilearray.add(t);
+					}
 				}
 
 			}
@@ -186,8 +199,7 @@ public class GameScreen extends Screen {
 
 				else if (inBounds(event, 0, 350, 65, 65)) {
 
-					if (chicken.isDucked() == false && chicken.isJumped() == false
-							&& chicken.isReadyToFire()) {
+					if (chicken.isDucked() == false && chicken.isReadyToFire()) {
 						chicken.shoot();
 					}
 				}
@@ -259,8 +271,12 @@ public class GameScreen extends Screen {
 		}
 		
 		updateTiles();
-		enemy1.update();
-		enemy2.update();
+		//enemy1.update();
+		//enemy2.update();
+		for(Enemy e : enemyList)
+		{
+			e.update();
+		}
 		bg1.update();
 		bg2.update();
 		animate();
@@ -340,10 +356,13 @@ public class GameScreen extends Screen {
 
 		g.drawImage(currentSprite, chicken.getCenterX() - 61,
 				chicken.getCenterY() - 70);
-		g.drawImage(enemyAnim.getImage(), enemy1.getCenterX() - 48,
-				enemy1.getCenterY() - 48);
-		g.drawImage(enemyAnim.getImage(), enemy2.getCenterX() - 48,
-				enemy2.getCenterY() - 48);
+		//g.drawImage(enemyAnim.getImage(), enemy1.getCenterX() - 48,	enemy1.getCenterY() - 48);
+		//g.drawImage(enemyAnim.getImage(), enemy2.getCenterX() - 48,	enemy2.getCenterY() - 48);
+		
+		for(Enemy e : enemyList)
+		{
+			g.drawImage(enemyAnim.getImage(), e.getCenterX() - 48,	e.getCenterY() - 48);
+		}
 		
 		// Example:
 		// g.drawImage(Assets.background, 0, 0);
@@ -384,8 +403,10 @@ public class GameScreen extends Screen {
 		bg1 = null;
 		bg2 = null;
 		chicken = null;
-		enemy1 = null;
-		enemy2 = null;
+		//enemy1 = null;
+		//enemy2 = null;
+
+		enemyList.clear();
 		currentSprite = null;
 		chickenImg = null;
 		enemyOneImg = null;
